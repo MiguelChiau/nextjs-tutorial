@@ -1,16 +1,19 @@
-import ArticleItem from "./ArticleItem"
+import Link from "next/Link"
 import articleStyles from "../styles/Article.module.css"
 
-const ArticleItem = ({articles}) => {
+
+const ArticleItem = ({article}) => {
     return (
-        <div className={articleStyles.grid}>
-            {
-                articles.map((article) => (
-                    <ArticleItem article={articles}/>
-                ))
-            }
-            
-        </div>
+        <Link href={`/article/${article.id}`}>
+            <a className={articleStyles.card}>
+                <h3>
+                    {article.title} &rarr;
+                </h3>
+                <p>
+                    {article.body}
+                </p> 
+            </a>
+        </Link>
     )
 }
 
